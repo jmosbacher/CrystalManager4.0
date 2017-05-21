@@ -1,5 +1,9 @@
 import os
 from traits.api import *
+from matplotlib.ticker import LinearLocator, FormatStrFormatter, NullFormatter
+from auxilary_functions import wl_to_rgb
+import numpy as np
+
 from traitsui.api import *
 from traitsui.extras.checkbox_column import CheckboxColumn
 from mpl_toolkits.mplot3d import Axes3D
@@ -11,11 +15,6 @@ import matplotlib.cm as cmx
 from matplotlib import cm
 import matplotlib
 matplotlib.style.use('ggplot')
-
-from matplotlib.ticker import LinearLocator, FormatStrFormatter, NullFormatter
-from auxilary_functions import wl_to_rgb
-import numpy as np
-import random
 import pandas as pd
 from measurement import BaseMeasurement, SpectrumMeasurement, MeasurementTableEditor
 from integration_results import IntegrationResultBase
@@ -249,8 +248,6 @@ class SpectrumExperiment(BaseExperiment):
             return True
         else:
             return False
-
-
 
     def _sort_by_wl_fired(self):
         def wl(spectrum):
